@@ -140,6 +140,8 @@ By combining PCC's granular hashing with the "intelligent" health checks of recu
 
 <img width="1536" height="846" alt="image" src="https://github.com/user-attachments/assets/9b5eadb2-56a5-4a53-8e6a-a2dc17614c36" />
 
+<img width="783" height="212" alt="image" src="https://github.com/user-attachments/assets/b3326c67-576a-4584-bd01-4bdb4ec9b6c4" />
+
 
 **Traffic Distribution Engine:** Per-Connection Classifier (PCC) using both-addresses-and-ports hashing for granular flow distribution
 
