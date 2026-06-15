@@ -96,8 +96,7 @@ This can be further improved with scripts and I'm working on it!
 
 **CONVERGENCE TIME:**
 
-
-https://github.com/user-attachments/assets/ebb4fcd0-7923-4b84-ad13-42688c6acafc
+https://github.com/user-attachments/assets/21d33250-3e80-44a3-971a-2c23d72452ba
 
 
 | Load Balancing Profile | Connection Integrity | State Path Failure Action | Total Convergence Time |
@@ -107,7 +106,7 @@ https://github.com/user-attachments/assets/ebb4fcd0-7923-4b84-ad13-42688c6acafc
 
 **HOW LONG THE CONVERGENCE IS WHEN LINK IS DOWN:**
 
-https://github.com/user-attachments/assets/21d33250-3e80-44a3-971a-2c23d72452ba
+https://github.com/user-attachments/assets/ebb4fcd0-7923-4b84-ad13-42688c6acafc
 
 Only one packet dropped!
 
