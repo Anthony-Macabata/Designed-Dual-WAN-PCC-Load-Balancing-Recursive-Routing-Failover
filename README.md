@@ -68,11 +68,7 @@ https://github.com/user-attachments/assets/e8a3f087-f044-4a2f-a748-1ebdb17bdb49
 
 **ECMP:**
 
-
-
-https://github.com/user-attachments/assets/a4805d97-b47e-4331-bd59-f91f14af1eed
-
-
+https://github.com/user-attachments/assets/108cc6f8-ad92-4d82-879a-6d3be4481491
 
 **PCC:**
 
@@ -88,11 +84,11 @@ https://github.com/user-attachments/assets/17eaae58-19f1-4345-b7db-c43218635cd1
 
 **WITHOUT RECURSIVE ROUTING:**
 
-https://github.com/user-attachments/assets/3349bb00-54f2-491d-a717-14324b2cf89e
+https://github.com/user-attachments/assets/a4805d97-b47e-4331-bd59-f91f14af1eed
 
 **WITH RECURSIVE ROUTING:**
 
-
+https://github.com/user-attachments/assets/c6c0f70f-c60e-4e15-964d-5a38cd4e7770
 
 With recursive routing active, the router detected the loss of 8.8.8.8/1.1.1.1 reachability. Traceroute logs showed the path initially exiting via ISP 1, then dynamically shifting to ISP 2 the moment the recursive check failed. The high-frequency ping recorded 340 dropped packets and 56 received during the transition. This calculated to a total failover convergence time of exactly **~28.4 seconds** for the check-gateway timeout and routing table recalculation to complete.
 
@@ -100,6 +96,8 @@ This can be further improved with scripts and I'm working on it!
 
 **CONVERGENCE TIME:**
 
+
+https://github.com/user-attachments/assets/ebb4fcd0-7923-4b84-ad13-42688c6acafc
 
 
 | Load Balancing Profile | Connection Integrity | State Path Failure Action | Total Convergence Time |
@@ -109,7 +107,7 @@ This can be further improved with scripts and I'm working on it!
 
 **HOW LONG THE CONVERGENCE IS WHEN LINK IS DOWN:**
 
-
+https://github.com/user-attachments/assets/21d33250-3e80-44a3-971a-2c23d72452ba
 
 Only one packet dropped!
 
@@ -136,8 +134,6 @@ Only one packet dropped!
 This project demonstrates the necessity of path-aware load balancing in modern networks.
 
 By combining PCC's granular hashing with the "intelligent" health checks of recursive routing, I've built a network that not only doubles available bandwidth but also self-heals during complex ISP outages that would leave standard configurations like ECMP,PFIFO,etc. paralyzed.
-
-
 
 ---
 
