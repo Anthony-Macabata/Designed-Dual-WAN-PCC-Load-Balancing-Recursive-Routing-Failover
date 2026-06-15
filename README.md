@@ -1,9 +1,3 @@
-
-
-https://github.com/user-attachments/assets/3349bb00-54f2-491d-a717-14324b2cf89e
-
-
-
 # Dual-WAN Enterprise Gateway: PCC Load Balancing & Recursive Routing Failover
 ### *Engineered a Per-Connection Classifier (PCC) Load Balancing fabric with Layer 7 Session Stickiness and Recursive Gateway for Multi-ISP High-Availability.*
 
@@ -94,7 +88,7 @@ https://github.com/user-attachments/assets/17eaae58-19f1-4345-b7db-c43218635cd1
 
 **WITHOUT RECURSIVE ROUTING:**
 
-
+https://github.com/user-attachments/assets/3349bb00-54f2-491d-a717-14324b2cf89e
 
 **WITH RECURSIVE ROUTING:**
 
