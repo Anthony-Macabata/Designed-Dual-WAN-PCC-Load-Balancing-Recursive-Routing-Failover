@@ -5,17 +5,25 @@
 
 ---
 
+## The Topology
+
+
+
+---
+
 ## The Lore
 
 Okay so here's the scenario:
 
-Standard Dual-WAN setups often suffer from two critical flaws: Asymmetric Session Breaks and "Ghost" Gateway Failures.
+Standard Dual-WAN setups often suffer from two critical flaws: Asymmetric Load Balancing and Session Breaks.
 
-If a router uses simple Round-Robin packet distribution like the default PFIFO, secure websites (HTTPS/Banking) will drop the session because the source IP appears to flip-flop every second.
+If a router uses simple Round-Robin packet distribution like the default PFIFO, secure websites (HTTPS/Banking) will drop the session because the source IP appears to flip-flop every second. A
 
 Furthermore, if the ISP's physical modem stays "Up" but their internal network loses internet connectivity, a standard router remains "blind" to the failure and continues sending packets into a black hole.
 
-I engineered a solution that ensures both LOad Blancing and Intelligent Recursive Self-Healing:
+Sure, ECMP provides load balancing too but it lacks symmetric load balancing like what PCC does!
+
+I engineered a solution that ensures both Load Blancing and Intelligent Recursive Routing:
 
 1. **PCC Hashing & Stickiness:** I utilized the PCC matcher to hash traffic based on source/destination IPs. This ensures that once a session is established on ISP 1 or ISP 2, it "sticks" there, preserving stateful connections while allowing different client connections to utilize the full capacity of both ISPs.
 
@@ -29,7 +37,7 @@ I engineered a solution that ensures both LOad Blancing and Intelligent Recursiv
 Deployed a complete PCC engine capable of tracking separate network streams and dynamically sharing the transport load based on client transport definitions.
 
 **Failover Verification**  
-Constructed a multi-hop recursive routing path that targets global web nodes such as 8.8.8.8 and 1.1.1.1 to prevent gateway blackholing during upstream carrier outages.
+Constructed a multi-hop recursive routing path that targets global web nodes such as 8.8.8.8 and 1.1.1.1 to prevent gateway blackholing during upstream ISP carrier outages.
 
 **Session-State**  
 Anchored connection tracking boundaries across the Mangle table to prevent multi-WAN packet reordering and keep secure user connections stable.
@@ -78,7 +86,7 @@ https://github.com/user-attachments/assets/17eaae58-19f1-4345-b7db-c43218635cd1
 
 ### Test 4: Recursive Route Failover & Convergence Timing
 
-**What I did:** Simulated a "Ghost" gateway failure by creating an explicit packet drop rule for the recursive targets (8.8.8.8 and 1.1.1.1) on ISP 1 while keeping the physical gateway interface active, using a high-frequency ping (0.1s interval) to measure the exact failover time.
+**What I did:** Simulated an ISP failure by creating an explicit packet drop rule for the recursive targets (8.8.8.8 and 1.1.1.1) on ISP 1 while keeping the physical gateway interface active, using a high-frequency ping (0.1s interval) to measure the exact failover time.
 
 **What happened:** Without recursive routing, the connections became confused and packets were dropped into an active black hole because the router thought the up-state interface was healthy.
 
@@ -143,7 +151,7 @@ By combining PCC's granular hashing with the "intelligent" health checks of recu
 <img width="783" height="212" alt="image" src="https://github.com/user-attachments/assets/b3326c67-576a-4584-bd01-4bdb4ec9b6c4" />
 
 
-**Traffic Distribution Engine:** Per-Connection Classifier (PCC) using both-addresses-and-ports hashing for granular flow distribution
+**Traffic Distribution Engine:** Per-Connection Classifier (PCC) using both addresses hashing for granular flow distribution
 
 **Failover Mechanism:** Recursive Route Lookups utilizing global DNS (8.8.8.8 / 1.1.1.1) as scope targets to verify true end-to-end internet reachability beyond the immediate ISP gateway
 
