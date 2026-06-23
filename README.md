@@ -76,11 +76,14 @@ https://github.com/user-attachments/assets/e8a3f087-f044-4a2f-a748-1ebdb17bdb49
 
 **ECMP:**
 
-https://github.com/user-attachments/assets/108cc6f8-ad92-4d82-879a-6d3be4481491
+https://github.com/user-attachments/assets/4e8ed561-98ee-4476-9ed8-7d651039a7e7
+
 
 **PCC:**
 
 https://github.com/user-attachments/assets/17eaae58-19f1-4345-b7db-c43218635cd1
+
+**The problem:** ECMP like they said is not session sticky, that is true for LAN to WAN (you start the connection) like visiting websites etc. The problem is from WAN to LAN, ECMP unlike PCC doesnt track a connection it doesnt mark it, so for example say a VPN, Port-Forwarding or any other traffic outside the WAN that (inititiates the traffic to you) that connection will be new, and since the ECMP has no recollection of where that specific connection originated, it might hash to ISP1 or to ISP2 breaking the connection. Also to be honest PCC is more scalable, designed for asymmetric WAN bandwidths and the cpu cost to benefit ratio is worth it compared to ECMP just sayin!
 
 ---
 
